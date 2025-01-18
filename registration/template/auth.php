@@ -4,6 +4,12 @@ require_once '../../lib/function_global.php';
 
 $error = '';
 
+if (isset($_GET['logout'])) {
+    session_destroy();
+    header("Location: auth.php");
+    exit();
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $login = mysqli_real_escape_string($link, $_POST['login']);
     $password = $_POST['password'];

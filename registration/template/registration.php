@@ -13,6 +13,10 @@ require_once '../../lib/function_global.php';
 <body>
     <h2>Регистрация</h2>
     
+    <?php if (isset($_SESSION['error'])): ?>
+        <p style="color: red;"><?php echo $_SESSION['error']; unset($_SESSION['error']); ?></p>
+    <?php endif; ?>
+    
     <form method="POST" action="../index.php" onsubmit="return validateForm(this);">
         <p>
             <label>Логин:</label><br>
